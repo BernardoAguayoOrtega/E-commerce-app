@@ -1,7 +1,9 @@
 //import react and import its hooks
 import React, { useContext } from 'react';
 //import context
-import { Context } from '../context'
+import { Context } from '../context';
+//import prop types
+import PropTypes from 'prop-types';
 
 function Image({ className, img }) {
   //with object destructuring get toggleFavorite function
@@ -25,6 +27,16 @@ function Image({ className, img }) {
       {cartIcon}
     </div>
   );
+}
+
+//use prop types  for Image props
+Image.propTypes = {
+  className: PropTypes.string,
+  img: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    isFavorite: PropTypes.bool
+  })
 }
 
 export default Image
