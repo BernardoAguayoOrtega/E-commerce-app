@@ -1,7 +1,9 @@
 //import react
 import React from 'react';
+
 //import Switch and Route components from react router dom
-import {Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+
 //import components
 import Header from './components/Header';
 import Cart from './pages/Cart';

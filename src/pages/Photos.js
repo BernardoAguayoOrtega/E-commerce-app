@@ -1,7 +1,9 @@
 //import react from react
 import React, { useContext } from 'react';
+
 //import context from context
 import { Context } from '../context';
+
 //import image component and utils
 import Image from '../components/Image';
 import { getClass } from '../utils';

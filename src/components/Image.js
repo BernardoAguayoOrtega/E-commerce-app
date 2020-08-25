@@ -1,25 +1,31 @@
 //import react and import its hooks
 import React, { useContext } from 'react';
+
 //import context
 import { Context } from '../context';
+
 //import prop types
 import PropTypes from 'prop-types';
 
 function Image({ className, img }) {
+
   //with object destructuring get functions from context
-  const { toggleFavorite, addToCart, cartItems } = useContext(Context)
-  //const for display de icons
+  const { toggleFavorite, addToCart, cartItems, removeToCart } = useContext(Context)
+
+  //const for display heart icon
   const heartIcon = () => {
     if (img.isFavorite) {
       return <i className='ri-heart-fill favorite' onClick={() => toggleFavorite(img.id)}/>
     }
     return <i className='ri-heart-line favorite' onClick={() => toggleFavorite(img.id)} />
   }
+
+  //const to display cart icon
   const cartIcon = () => {
     const isInTheCart = cartItems.some(item => item.id === img.id)
 
     if (isInTheCart) {
-      return <i className='ri-shopping-cart-fill cart' />
+      return <i className='ri-shopping-cart-fill cart' onClick={() => removeToCart(img)}/>
     }
     return <i className='ri-add-circle-line cart' onClick={() => addToCart(img)}/>
   }
