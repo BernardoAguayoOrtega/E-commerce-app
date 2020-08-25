@@ -5,6 +5,10 @@ function Image({ className, img }) {
   //use state hook that allow use state with functional component
   const [hovered, setHovered] = useState()
 
+  //const for display de icons
+  const heartIcon = hovered && <i className='ri-heart-line favorite' />
+  const cartIcon = hovered && <i className='ri-add-circle-line cart' />
+
   return (
     <div className={`${className} image-container`}>
       <img
@@ -13,7 +17,8 @@ function Image({ className, img }) {
         src={img.url}
         className='image-grid'
       />
-      {hovered ? <><i className='ri-heart-line favorite' /> <i className='ri-add-circle-line cart' /></> : <></>}
+      {heartIcon}
+      {cartIcon}
     </div>
   );
 }
