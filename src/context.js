@@ -8,6 +8,7 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   //use state hook that allow us to have state into a functional component
   const [photos, setPhotos] = useState([])
+  const [cartItems, setCartItems] = useState([])
   //const for url
   const url = 'https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json'
   //use effect hook that allow us to have component life cycle into a functional component
@@ -24,10 +25,14 @@ function ContextProvider({ children }) {
       }
       return photo
     })
-
     setPhotos(updatedArr)
   }
-  return <Context.Provider value={{ photos, toggleFavorite }}>{children}</Context.Provider>;
+  //function to add items to card
+  function addToCart(newItem) {
+    setCartItems(prevItems => [...prevItems, newItem])
+  }
+  console.log(cartItems)
+  return <Context.Provider value={{ photos, toggleFavorite, addToCart }}>{children}</Context.Provider>;
 }
 
 export { Context, ContextProvider };
