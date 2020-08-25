@@ -14,9 +14,6 @@ function ContextProvider({ children }) {
       .then((response) => response.json())
       .then((json) => setPhotos(json));
   }, []);
-
-  console.log(photos)
-
   return <Context.Provider value={{ photos }}>{children}</Context.Provider>;
 }
 export { Context, ContextProvider };
