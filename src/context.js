@@ -1,7 +1,9 @@
 //import react and its hooks
 import React, { useState, useEffect } from 'react';
+
 //create react context
 const Context = React.createContext();
+
 //functional component that renders the provider context
 function ContextProvider({ children }) {
   //use state hook that allow us to have state into a functional component
@@ -16,4 +18,5 @@ function ContextProvider({ children }) {
   }, []);
   return <Context.Provider value={{ photos }}>{children}</Context.Provider>;
 }
+
 export { Context, ContextProvider };

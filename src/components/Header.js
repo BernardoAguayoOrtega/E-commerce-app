@@ -2,6 +2,7 @@
 import React from 'react';
 //import Link component from react router dom, allow us to set values to switch
 import { Link } from 'react-router-dom';
+
 function Header() {
   return (
     <header>
