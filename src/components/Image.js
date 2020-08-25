@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 function Image({ className, img }) {
   //with object destructuring get functions from context
-  const { toggleFavorite, addToCart } = useContext(Context)
+  const { toggleFavorite, addToCart, cartItems } = useContext(Context)
   //const for display de icons
   const heartIcon = () => {
     if (img.isFavorite) {
@@ -15,7 +15,14 @@ function Image({ className, img }) {
     }
     return <i className='ri-heart-line favorite' onClick={() => toggleFavorite(img.id)} />
   }
-  const cartIcon = <i className='ri-add-circle-line cart' onClick={() => addToCart(img)}/>
+  const cartIcon = () => {
+    const isInTheCart = cartItems.some(item => item.id === img.id)
+
+    if (isInTheCart) {
+      return <i className='ri-shopping-cart-fill cart' />
+    }
+    return <i className='ri-add-circle-line cart' onClick={() => addToCart(img)}/>
+  }
 
   return (
     <div className={`${className} image-container`}>
@@ -24,7 +31,7 @@ function Image({ className, img }) {
         className='image-grid'
       />
       {heartIcon()}
-      {cartIcon}
+      {cartIcon()}
     </div>
   );
 }

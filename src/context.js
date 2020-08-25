@@ -32,7 +32,7 @@ function ContextProvider({ children }) {
     setCartItems(prevItems => [...prevItems, newItem])
   }
   console.log(cartItems)
-  return <Context.Provider value={{ photos, toggleFavorite, addToCart }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ photos, toggleFavorite, addToCart, cartItems }}>{children}</Context.Provider>;
 }
 
 export { Context, ContextProvider };
