@@ -1,19 +1,18 @@
-//import react and import use state hook that allow us to work with state
-import React, { useState } from 'react';
+//import react and import its hooks
+import React, { useState, useContext } from 'react';
+//import context
+import { Context } from '../context'
 
 function Image({ className, img }) {
-  //use state hook that allow use state with functional component
-  const [hovered, setHovered] = useState()
-
+  //with object destructuring get toggleFavorite function
+  const { toggleFavorite } = useContext(Context)
   //const for display de icons
-  const heartIcon = hovered && <i className='ri-heart-line favorite' />
-  const cartIcon = hovered && <i className='ri-add-circle-line cart' />
+  const heartIcon = <i className='ri-heart-line favorite' onClick={() => toggleFavorite(img.id)} />
+  const cartIcon = <i className='ri-add-circle-line cart' />
 
   return (
     <div className={`${className} image-container`}>
       <img
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
         src={img.url}
         className='image-grid'
       />

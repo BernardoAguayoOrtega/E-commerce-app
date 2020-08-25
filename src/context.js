@@ -16,7 +16,20 @@ function ContextProvider({ children }) {
       .then((response) => response.json())
       .then((json) => setPhotos(json));
   }, []);
-  return <Context.Provider value={{ photos }}>{children}</Context.Provider>;
+  //toggleFavorite function
+  function toggleFavorite(id) {
+    const updatedArr = photos.map(photo => {
+      if (photo.id === id) {
+        console.log(id)
+        console.log(!photo.isFavorite)
+        return { ...photo, isFavorite: !photo.isFavorite }
+      }
+      return photo
+    })
+
+    setPhotos(updatedArr)
+  }
+  return <Context.Provider value={{ photos, toggleFavorite }}>{children}</Context.Provider>;
 }
 
 export { Context, ContextProvider };
