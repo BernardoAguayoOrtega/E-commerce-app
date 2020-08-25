@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function Image({ className, img }) {
   //use state hook that allow use state with functional component
-  const [hovered,setHovered] = useState()
+  const [hovered, setHovered] = useState()
 
   return (
     <div className={`${className} image-container`}>
@@ -13,8 +13,9 @@ function Image({ className, img }) {
         src={img.url}
         className='image-grid'
       />
+      {hovered ? <><i className='ri-heart-line favorite' /> <i className='ri-add-circle-line cart' /></> : <></>}
     </div>
   );
 }
 
-export default Image;
+export default Image
