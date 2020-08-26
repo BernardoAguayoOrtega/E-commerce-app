@@ -11,6 +11,10 @@ function Cart() {
   //use context
   const { cartItems } = useContext(Context)
 
+  //calculate total price
+  const totalCost = 5.99 * cartItems.length
+  const totalCostDisplay = totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+
   //map trough array of card items
   const cartItemElements = cartItems.map(item => (
     <CartItem key={item.id} item={item} />
@@ -26,7 +30,7 @@ function Cart() {
     <main className='cart-page'>
       <h1>Check out</h1>
       {shoeElements()}
-      <p className='total-cost'>Total: </p>
+      <p className='total-cost'>{`Total: ${totalCostDisplay}`}</p>
       <div className='order-button'>
         <button>Place Order</button>
       </div>
