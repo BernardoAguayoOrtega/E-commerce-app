@@ -43,7 +43,20 @@ function ContextProvider({ children }) {
     setCartItems(newCartItems)
   }
 
-  return <Context.Provider value={{ photos, toggleFavorite, addToCart, cartItems, removeToCart }}>{children}</Context.Provider>;
+  //clean the cart
+  function emptyCart() {
+    setCartItems([])
+  }
+
+  return (<Context.Provider value={{ photos,
+    toggleFavorite,
+    addToCart,
+    cartItems,
+    removeToCart,
+    emptyCart }}
+  // eslint-disable-next-line react/jsx-closing-bracket-location
+  >
+    {children} </Context.Provider>);
 }
 
 export { Context, ContextProvider };
