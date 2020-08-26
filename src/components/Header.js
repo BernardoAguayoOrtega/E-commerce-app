@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 
 //import context
-import {Context} from '../context'
+import { Context } from '../context'
 
 //import Link component from react router dom, allow us to set values to switch
 import { Link } from 'react-router-dom';
