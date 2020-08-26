@@ -43,9 +43,10 @@ function Cart() {
       <h1>Check out</h1>
       {shoeElements()}
       <p className='total-cost'>{`Total: ${totalCostDisplay}`}</p>
-      <div className='order-button'>
-        <button onClick={placeOrder}>{buttonText}</button>
-      </div>
+      {
+        (cartItems.length >= 1) && <div className='order-button'>
+          <button onClick={placeOrder}>{buttonText}</button>
+        </div>}
     </main>
   )
 }
