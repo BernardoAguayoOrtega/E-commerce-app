@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //import browser router from react-router-dom that allow us to implement as a provider trough our app
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 //import context provider
 import { ContextProvider } from './context'
@@ -16,7 +16,7 @@ import App from './App';
 
 ReactDOM.render(
   <ContextProvider>
-    <Router>
+    <Router basename='/'>
       <App />
     </Router>
   </ContextProvider>,
